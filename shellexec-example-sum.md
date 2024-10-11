@@ -15,3 +15,7 @@ b10efff0b8d6d092f3742149d1433e4ddd7f58bb84dca493f42ef3c46502ba26  shellexec-exam
 ## shellexec-example3: 160 bytes
 
 af677744de513f54d7a1fbf4bd07fbf0d3dff8bbafd5ce45f5c23a17e8649147  shellexec-example3
+
+## shellexec-example-large: 608 bytes
+
+d0edc96992932424434dae3fb7d4da4fad0447b899a9fb67867c774a84e25cd4  shellexec-example-large
